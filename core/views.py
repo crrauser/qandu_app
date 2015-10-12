@@ -7,6 +7,7 @@ from django.views.generic import DetailView
 from django.views.generic import UpdateView
 
 
+
 class Home(TemplateView):
   template_name = "home.html"
 
