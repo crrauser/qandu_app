@@ -5,6 +5,7 @@ from .models import *
 from django.views.generic import ListView
 from django.views.generic import DetailView
 from django.views.generic import UpdateView
+from django.views.generic import DeleteView
 
 
 
@@ -33,3 +34,8 @@ class QuestionUpdateView(UpdateView):
   model = Question
   template_name = 'question/question_form.html'
   fields = ['title', 'description']
+
+class QuestionDeleteView(DeleteView):
+  model = Question
+  template_name = 'question/question_confirm_delete.html'
+  success_url = reverse_lazy('question_list')
