@@ -33,7 +33,9 @@ class QuestionDetailView(DetailView):
   def get_context_data(self, **kwargs):
     context = super(QuestionDetailView, self).get_context_data(**kwargs)
     question = Question.objects.get(id=self.kwargs['pk'])
-    answers = Answer.objects.filter(question)
+    answers = Answer.objects.filter(question=question)
+    context['answers'] = answers
+    return context
 
 class QuestionUpdateView(UpdateView):
   model = Question
